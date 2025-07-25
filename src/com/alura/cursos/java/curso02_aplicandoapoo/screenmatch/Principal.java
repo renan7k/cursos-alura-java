@@ -1,6 +1,8 @@
 package com.alura.cursos.java.curso02_aplicandoapoo.screenmatch;
 
 import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.calculos.CalculadoraDeTempo;
+import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.calculos.FiltroRecomendacao;
+import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Episodio;
 import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Filme;
 import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Serie;
 
@@ -25,11 +27,12 @@ public class Principal {
         filme.avalia(10);
 
         filme.exibeFichaTecnica();
-        System.out.println(filme.pegaMedia());
+        System.out.println("A nota de avaliação do filme é: "+filme.pegaMedia());
 
         Serie lost = new Serie();
         lost.setNome("Lost");
         lost.setAnoDeLancamento(2001);
+        System.out.println("--------------------------------------------------------------");
 
         lost.setTemporadas(10);
         lost.setAtiva(false);
@@ -37,6 +40,7 @@ public class Principal {
         lost.setMinutosPorEpisodio(45);
         System.out.println("Duração da série: " + lost.getDuracaoEmMinutos() + " minutos");
         lost.exibeFichaTecnica();
+        System.out.println("--------------------------------------------------------------");
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(filme);
@@ -45,5 +49,16 @@ public class Principal {
         System.out.println(calculadora.getTempoTotal());
         calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
+        System.out.println("--------------------------------------------------------------");
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(filme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setNome("Day one");
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtra(episodio);
     }
 }
