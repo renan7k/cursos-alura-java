@@ -1,4 +1,4 @@
-package com.alura.cursos.java.curso02_aplicandoapoo.screenmatch;
+package com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.principal;
 
 import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.calculos.CalculadoraDeTempo;
 import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.calculos.FiltroRecomendacao;
@@ -6,17 +6,15 @@ import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Episodio;
 import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Filme;
 import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme filme = new Filme();
-        filme.setNome("Fórmula 1");
-        filme.setAnoDeLancamento(2025);
+        Filme filme = new Filme("Fórmula 1", 2025);
         filme.setIncluidoNoPlano(false);
         filme.setDuracaoEmMinutos(180);
 
-        Filme filme2 = new Filme();
-        filme.setNome("Jurassic Park");
-        filme2.setAnoDeLancamento(1993);
+        Filme filme2 = new Filme("Jurassic Park", 1993);
         filme2.setIncluidoNoPlano(true);
         filme2.setDuracaoEmMinutos(130);
 
@@ -29,9 +27,7 @@ public class Principal {
         filme.exibeFichaTecnica();
         System.out.println("A nota de avaliação do filme é: "+filme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2001);
+        Serie lost = new Serie("Lost", 2001);
         System.out.println("--------------------------------------------------------------");
 
         lost.setTemporadas(10);
@@ -60,5 +56,21 @@ public class Principal {
         episodio.setNome("Day one");
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+        System.out.println("-----------------------------------------------------------------------");
+        //TRABALHANDO COM LISTAS E COLEÇÕES
+        //Classe arrayList é uma das mais usadas
+        Filme filme3 = new Filme("Dogville", 2003);
+        filme3.setIncluidoNoPlano(true);
+        filme3.setDuracaoEmMinutos(200);
+        filme.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filme);
+        listaDeFilmes.add(filme2);
+        listaDeFilmes.add(filme3);
+        System.out.println("Quantidade de filmes na lista: "+listaDeFilmes.size());
+        System.out.println("1º Filme da lista: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes); //o toString do arrayList, já é configurado para fazer um "for" e percorrer a lista
+        System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
     }
 }
