@@ -1,6 +1,6 @@
-package com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo;
+package com.alura.cursos.java.curso03_listasecolecoes.screenmatch.modelo;
 
-public class Serie extends Titulo{
+public class Serie extends Titulo {
     private int temporadas;
     private boolean ativa;
     private int episodiosPorTemporada;

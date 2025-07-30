@@ -1,8 +1,8 @@
-package com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.principal;
+package com.alura.cursos.java.curso03_listasecolecoes.screenmatch.principal;
 
-import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Filme;
-import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Serie;
-import com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo.Titulo;
+import com.alura.cursos.java.curso03_listasecolecoes.screenmatch.modelo.Filme;
+import com.alura.cursos.java.curso03_listasecolecoes.screenmatch.modelo.Serie;
+import com.alura.cursos.java.curso03_listasecolecoes.screenmatch.modelo.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;

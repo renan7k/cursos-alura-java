@@ -1,4 +1,4 @@
-package com.alura.cursos.java.curso02_aplicandoapoo.screenmatch.modelo;
+package com.alura.cursos.java.curso03_listasecolecoes.screenmatch.modelo;
 
 public class Titulo implements Comparable<Titulo>{
     private String nome;
