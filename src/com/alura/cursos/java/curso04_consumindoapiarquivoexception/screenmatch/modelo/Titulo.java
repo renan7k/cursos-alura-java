@@ -1,12 +1,10 @@
 package com.alura.cursos.java.curso04_consumindoapiarquivoexception.screenmatch.modelo;
 
+import com.alura.cursos.java.curso04_consumindoapiarquivoexception.screenmatch.excecao.ErrorDeConversaoDeAnoException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo>{
-
-    @SerializedName("Title")
     private String nome;
-    @SerializedName("Year")
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double avaliacao;
@@ -20,6 +18,10 @@ public class Titulo implements Comparable<Titulo>{
 
     public Titulo(TituloOmdb meuTituloOmdb) {
         this.nome = meuTituloOmdb.title();
+
+        if(meuTituloOmdb.year().length() > 4){//validando se nn está vindo nenhum dígito q mais (Ocorre no filme divertidamente)
+            throw new ErrorDeConversaoDeAnoException("Não foi possível converter o ano, pois possui mais de 4 caracteres.");
+        }
         this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year()); //Convertendo string para inteiro
 
         //Para essa variável, tivemos que pegar apenas os numeros, pois tbm retornava "min"
