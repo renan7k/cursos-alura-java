@@ -1,5 +1,11 @@
 package com.alura.cursos.java.curso04_consumindoapiarquivoexception.screenmatch.principal;
 
+import com.alura.cursos.java.curso04_consumindoapiarquivoexception.screenmatch.modelo.Titulo;
+import com.alura.cursos.java.curso04_consumindoapiarquivoexception.screenmatch.modelo.TituloOmdb;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -22,6 +28,17 @@ public class PrincipalComBuscaApi {
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
+        String json = response.body();
+        System.out.println(json);
+
+        //desserialização - transformar o json de resposta da api em objeto
+        //Gson gson = new Gson();
+        //Embaixo, estamos usando o buider, pois nos campos do Json retorna algumas letras maiúsculas, e vamos desconsiderá-las por boa prática de nomenclatura de variáveis java
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+        //Titulo meuTitulo = gson.fromJson(json, Titulo.class); //aqui transforma o response em titulo.class
+        TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class); // Classe para transferência de dados
+        System.out.println(meuTituloOmdb);
+        Titulo meuTitulo = new Titulo(meuTituloOmdb);
+        System.out.println(meuTitulo);
     }
 }
