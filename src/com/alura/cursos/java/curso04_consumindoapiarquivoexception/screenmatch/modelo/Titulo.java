@@ -25,7 +25,7 @@ public class Titulo implements Comparable<Titulo>{
         this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year()); //Convertendo string para inteiro
 
         //Para essa variável, tivemos que pegar apenas os numeros, pois tbm retornava "min"
-        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 3));
     }
 
     public void exibeFichaTecnica(){
@@ -94,6 +94,6 @@ public class Titulo implements Comparable<Titulo>{
 
     @Override
     public String toString() {
-        return "Filme: " + nome + " Ano de lançamento: " + anoDeLancamento + " Duração: " + duracaoEmMinutos;
+        return "( Filme: " + nome + " ,Ano de lançamento: " + anoDeLancamento + " ,Duração: " + duracaoEmMinutos + " )";
     }
 }
